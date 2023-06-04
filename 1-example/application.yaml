@@ -2,18 +2,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-app
+  name: my-app-04062023
   namespace: argocd
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: aputra/nginx-lesson159:~v0.1
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: ssh://git@github.com/antonputra/lesson-159.git
+    repoURL: https://github.com/hoangnguyenvo0112/test-03062023.git
     targetRevision: main
-    path: environments/staging/my-app
+    path: 1-example/
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
